@@ -16,7 +16,7 @@
             StringBuilder sb = new StringBuilder();
             foreach (var b in bytes)
             {
-                sb.Append(b.ToString("x"));
+                sb.Append(b.ToString("x2"));
             }
 
             return sb.ToString();

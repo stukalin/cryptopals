@@ -1,6 +1,7 @@
 ﻿namespace Cryptopals.Util
 {
     using System.Globalization;
+    using System.Linq;
 
     public static class StringHelper
     {
@@ -17,6 +18,11 @@
             }
 
             return result;
+        }
+
+        public static byte[] ToBytes(this string s)
+        {
+            return s.Select(a => (byte)a).ToArray();
         }
     }
 }

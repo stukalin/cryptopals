@@ -24,16 +24,11 @@
 
         public static byte[] Xor(this byte[] a, byte[] b)
         {
-            if (a.Length != b.Length)
-            {
-                throw new ArgumentException("arrays length mismatch");
-            }
-
             var result = new byte[a.Length];
 
             for (int i = 0; i < a.Length; i++)
             {
-                result[i] = (byte)(a[i] ^ b[i]);
+                result[i] = (byte)(a[i] ^ b[i % b.Length]);
             }
 
             return result;
@@ -41,14 +36,7 @@
 
         public static byte[] Xor(this byte[] a, byte b)
         {
-            var result = new byte[a.Length];
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                result[i] = (byte)(a[i] ^ b);
-            }
-
-            return result;
+            return a.Xor(new []{ b });
         }
     }
 }
